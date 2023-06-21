@@ -1,0 +1,47 @@
+.topics__list {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.4rem;
+    margin-top: 20px;
+    list-style: none;
+}
+
+.topics__item {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.topics__item-link {
+    background-color: #4B79A1;
+    border-radius: 30px;
+    display: block;
+    font-weight: 500;
+    line-height: 1.8;
+    margin: 0px 8px 8px 0px;
+    padding: 6px 16px;
+    user-select: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+.topics__item-link:hover {
+    color: unset;
+}
+
+
+.PostItem_header {
+    align-items: center;
+    display: flex;
+}
+
+.css-dev-only-do-not-override-w8mnev .ant-col-offset-8 {
+    margin-left: 0;
+  }
+
+.css-dev-only-do-not-override-w8mnev .ant-list .ant-list-item .ant-list-item-meta {
+    display: block;
+}
+
+:where(.css-dev-only-do-not-override-w8mnev).ant-list .ant-list-item .ant-list-item-meta .ant-list-item-meta-content {
+    width: unset;
+}
