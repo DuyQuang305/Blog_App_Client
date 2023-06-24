@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import './css/login.css'
+import './css/main.css'
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { useFormik } from 'formik';
@@ -10,8 +10,6 @@ import { useGoogleLogin } from '@react-oauth/google';
 import ggImg from '../../assets/img/google.svg'
 import bg_img from './img/login_img.png'
 import fb_img from './img/fb_icon.svg'
-import mail from './img/mail.svg'
-import key from './img/key.svg'
 
 const apiUrl = process.env.REACT_APP_SERVER_URL
 

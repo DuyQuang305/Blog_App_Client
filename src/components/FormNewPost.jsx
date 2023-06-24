@@ -33,7 +33,34 @@ const FormNewPost = () => {
 
   const [form] = Form.useForm();
 
-  const convertToBase64 = (e) => {
+  const onFinish = async  (values) => {
+    try {
+      setTitle(values.title)
+      setDescription(values.description)
+      setContent(values.content)
+
+      if (title && content && description && imageUrl) {
+        const {data} = await axios.post(`${apiUrl}/blog/addBlog`, {
+          title: title, 
+          content: content, 
+          description: description,
+          postImage: imageUrl,
+        }, {
+            headers: {
+              'Authorization': `bearer ${token}` 
+            }
+          }
+        )
+        navigate('/blog')
+        console.log(data);
+      }
+      // form.resetFields();
+    } catch(err) {
+      console.log(err);
+    }
+  };
+
+  const convertToBase64 = async (e) => {
     const file = e.target.files[0]
     var reader = new FileReader();
 
@@ -46,37 +73,6 @@ const FormNewPost = () => {
       console.log('Error:', error);
     };
   }
-
-  const onFinish = async  (values) => {
-    try {
-      await setTitle(values.title)
-      await setDescription(values.title)
-      await setContent(values.title)
-
-      const uploadPost = async() => {
-        if (title, content, description) {
-          const {data} = await axios.post(`${apiUrl}/blog/addBlog`, {
-            title: title, 
-            content: content, 
-            description: description,
-            postImage: imageUrl,
-          }, {
-              headers: {
-                'Authorization': `bearer ${token}` 
-              }
-            }
-          )
-          console.log(data);
-        }
-      
-      }
-      uploadPost()
-
-      form.resetFields();
-    } catch(err) {
-      console.log(withError);
-    }
-  };
   
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
@@ -106,7 +102,7 @@ const FormNewPost = () => {
         <Form.Item label="Nội dung" name="content">
             <TextArea />
         </Form.Item>
-        <input accept='image.*' type="file" onChange={convertToBase64}/>
+        <input type="file" name = 'file' onChange={convertToBase64}/>
         <Form.Item {...tailLayout} style={{marginTop: '30px'}}>
           <Button type="primary" htmlType="submit" style={{width: '200px'}}>
             Submit

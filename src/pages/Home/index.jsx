@@ -60,7 +60,7 @@ const Home = () => {
           alignItems: 'center'
         }}
           className="info-user">
-          <Avatar src={currentUser.avatar || defaultAvatar} />
+          <Avatar src={`${apiUrl}/${currentUser.avatar}` || defaultAvatar} />
           <h4 style={{ marginLeft: '6px' }}>{currentUser.fullname}</h4>
         </div>
       ),
@@ -84,6 +84,8 @@ const Home = () => {
       ),
     },
   ];
+
+  console.log(currentUser);
 
   return (currentUser && accessToken &&
     (
@@ -122,7 +124,7 @@ const Home = () => {
                 }}
               >
                 <Avatar style={{ marginRight: '20px' }}
-                  src={currentUser.avatar || defaultAvatar} />
+                  src={`${apiUrl}/${currentUser.avatar}` || defaultAvatar} />
               </Dropdown>
             </Header>
             <Content>

@@ -30,7 +30,7 @@ function SetNewPassword() {
 
     onSubmit: async (values) => {
       try {
-            const response = await axios.post(`${apiUrl}/resetPassword/${token}`, {
+            const response = await axios.post(`${apiUrl}/auth/resetPassword/${token}`, {
               password: values.password,
               confirmPassword: values.confirmPassword,
             });

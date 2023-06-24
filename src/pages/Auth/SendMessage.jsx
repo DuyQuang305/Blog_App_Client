@@ -27,7 +27,7 @@ function PasswordReset() {
 
     onSubmit: async (values) => {
       try {
-        const { data } = await axios.post(`${apiUrl}/sendMessage`, {
+        const { data } = await axios.post(`${apiUrl}/auth/sendMessage`, {
           email: values.email,
         });
 

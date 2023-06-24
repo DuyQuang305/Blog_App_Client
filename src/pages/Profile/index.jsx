@@ -29,7 +29,7 @@ const Profile = () => {
     useEffect(() => {
         if (accessToken) {
             const getProfile = async () => {
-                const { data } = await axios.get(`${apiUrl}/api/profile`, {
+                const { data } = await axios.get(`${apiUrl}/profile`, {
                     headers: {
                         authorization: `Bearer ${accessToken}`,
                     }
@@ -100,22 +100,12 @@ const Profile = () => {
                                     <tr>
                                         <td>Address</td>
                                         <td>:</td>
-                                        <td>Bali, Indonesia</td>
+                                        <td>{currentUser.address}</td>
                                     </tr>
                                     <tr>
                                         <td>Hobbies</td>
                                         <td>:</td>
-                                        <td>Diving, Reading Book</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Job</td>
-                                        <td>:</td>
-                                        <td>Web Developer</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Skill</td>
-                                        <td>:</td>
-                                        <td>PHP, HTML, CSS, Java</td>
+                                        <td>{currentUser.interest}</td>
                                     </tr>
                                 </tbody>
                             </table>
