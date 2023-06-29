@@ -61,7 +61,7 @@ const Blog = () => {
           alignItems: 'center'
         }}
           className="info-user">
-          <Avatar src={`${apiUrl}/${currentUser.avatar}` || defaultAvatar} />
+          <Avatar src={currentUser.avatar ? `${apiUrl}/${currentUser.avatar}` : defaultAvatar} />
           <h4 style={{ marginLeft: '6px' }}>{currentUser.fullname}</h4>
         </div>
       ),
@@ -126,7 +126,7 @@ const Blog = () => {
                 }}
               >
                 <Avatar style={{ marginRight: '20px' }}
-                  src={`${apiUrl}/${currentUser.avatar}` || defaultAvatar} />
+                  src={currentUser.avatar ? `${apiUrl}/${currentUser.avatar}` : defaultAvatar} />
               </Dropdown>
             </Header>
             <ContentBlog currentUser={currentUser} />

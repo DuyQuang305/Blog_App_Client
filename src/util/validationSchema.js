@@ -1,7 +1,9 @@
 import * as yup from 'yup';
 
 export const loginSchema = yup.object().shape({
-    username: yup.string().required('username is required!'),
+    email: yup.string()
+              .email('Please provide a valid email address')
+              .required('email is required!'),
     password: yup.string()
                 .min(6, 'Password must be at least 6 characters')
                 .required('password is required!')
@@ -12,7 +14,8 @@ export const loginSchema = yup.object().shape({
   
 export const registerSchema = yup.object().shape({
     username: yup.string().required('username is required!'),
-    email: yup.string().email('Please provide a valid email address')
+    email: yup.string()
+              .email('Please provide a valid email address')
               .required('email is required!'),
     password: yup.string().min(6).required('password is required!').matches(
         /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/,

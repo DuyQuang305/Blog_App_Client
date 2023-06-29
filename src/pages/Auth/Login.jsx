@@ -44,7 +44,7 @@ function Login() {
 
   const formik = useFormik({
     initialValues: {
-      username: '',
+      email: '',
       password: '',
     },
 
@@ -54,7 +54,7 @@ function Login() {
 
       try {
         const response = await axios.post(`${apiUrl}/auth/login`, {
-          username: values.username,
+          email: values.email,
           password: values.password,
         });
 
@@ -90,17 +90,17 @@ function Login() {
           <div className='wrap-input username-input'>
             <div className="group__input">
               <input
-                id='name'
+                id='email'
                 type="text"
-                name='username'
-                placeholder="Username"
+                name='email'
+                placeholder="email"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                value={formik.values.username}
+                value={formik.values.email}
               />
             </div>
-            {formik.touched.username && formik.values.username && (
-              <span className='form__message--error'>{formik.errors.username}</span>
+            {formik.touched.email && formik.values.email && (
+              <span className='form__message--error'>{formik.errors.email}</span>
             )}
           </div>
 

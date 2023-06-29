@@ -50,7 +50,7 @@ const Home = () => {
     localStorage.clear();
     navigate('/login');
   }
-
+  console.log(`${apiUrl}/${currentUser.avatar}`);
   const items = [
     {
       key: '1',
@@ -60,7 +60,7 @@ const Home = () => {
           alignItems: 'center'
         }}
           className="info-user">
-          <Avatar src={`${apiUrl}/${currentUser.avatar}` || defaultAvatar} />
+          <Avatar src={currentUser.avatar ? `${apiUrl}/${currentUser.avatar}` : defaultAvatar} />
           <h4 style={{ marginLeft: '6px' }}>{currentUser.fullname}</h4>
         </div>
       ),
@@ -85,7 +85,7 @@ const Home = () => {
     },
   ];
 
-  console.log(currentUser);
+  console.log(currentUser.avatar);
 
   return (currentUser && accessToken &&
     (
@@ -124,7 +124,7 @@ const Home = () => {
                 }}
               >
                 <Avatar style={{ marginRight: '20px' }}
-                  src={`${apiUrl}/${currentUser.avatar}` || defaultAvatar} />
+                  src={currentUser.avatar ? `${apiUrl}/${currentUser.avatar}` : defaultAvatar} />
               </Dropdown>
             </Header>
             <Content>
